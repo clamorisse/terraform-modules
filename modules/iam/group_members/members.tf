@@ -5,5 +5,7 @@ variable "membership_name" {}
 resource "aws_iam_group_membership" "membership" {
   name  = "${var.membership_name}"
   group = "${var.groups.name}"
-  users = ["${split(",", var.users)}"] //convert a list to an array
+  users = ["${split(",", var.users)}"] 
+  //convert a list to an array
+  //obviously there is no need to iterate with split, count
 }

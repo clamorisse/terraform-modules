@@ -1,10 +1,10 @@
 provider "aws" {
-  region                   = "us-east-1"
-  profile                  = "prod-rn-account"
+  region   = "us-east-1"
+  profile  = "prod-rn-account"
 }
 
 variable "users"            {}
-variable "groups"           {}
+variable "group"           {}
 variable "managed_policies" {}
 
 // Create IAM users
@@ -16,7 +16,7 @@ module "users" {
 // Create an IAM group
 module "groups" {
     source = "modules/iam/groups"
-    groups = "${var.groups}"
+    groups = "${var.group}"
 }
 
 // Add IAM users to a group
